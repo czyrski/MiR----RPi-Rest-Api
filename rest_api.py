@@ -12,7 +12,7 @@ pfr=pifacerelayplus.PiFaceRelayPlus(pifacerelayplus.RELAY) #pi face relay plus
 print "Skrypt OK"
 
 url='http://mir.com/api/v2.0.0/registers/2'
-headers= {'Content-Type': 'application/json', 'Accept-Language':'en_US', 'Host':'mir.com:8080', 'Authorization':'Basic ZGlzdHJpYnV0b3I6NjJmMmYwZjFlZmYxMGQzMTUyYzk1ZjZmMDU5NjU3NmU0ODJiYjhlNDQ4MDY0MzNmNGNmOTI5NzkyODM0YjAxNA=='}
+headers= {'Content-Type': 'application/json', 'Accept-Language':'en_US', 'Host':'mir.com:8080', 'Authorization':'########'}
 data={"value": 0,"label": "Piface relay 0"}
 r=requests.put(url, data=json.dumps(data), headers=headers, )
 
@@ -30,20 +30,20 @@ while True:
 
     if (hour==9 and 45<minute<59) or (hour==17 and 45<minute<59) or (hour==1 and 45<minute<59):
         url='http://mir.com/api/v2.0.0/registers/3'
-        headers= {'Content-Type': 'application/json', 'Accept-Language':'en_US', 'Host':'mir.com:8080', 'Authorization':'Basic ZGlzdHJpYnV0b3I6NjJmMmYwZjFlZmYxMGQzMTUyYzk1ZjZmMDU5NjU3NmU0ODJiYjhlNDQ4MDY0MzNmNGNmOTI5NzkyODM0YjAxNA=='}
+        headers= {'Content-Type': 'application/json', 'Accept-Language':'en_US', 'Host':'mir.com:8080', 'Authorization':'########'}
         data={"value": 1,"label": "Break indicator"}
 
         r=requests.put(url, data=json.dumps(data), headers=headers, )
     else:
         url='http://mir.com/api/v2.0.0/registers/3'
-        headers= {'Content-Type': 'application/json', 'Accept-Language':'en_US', 'Host':'mir.com:8080', 'Authorization':'Basic ZGlzdHJpYnV0b3I6NjJmMmYwZjFlZmYxMGQzMTUyYzk1ZjZmMDU5NjU3NmU0ODJiYjhlNDQ4MDY0MzNmNGNmOTI5NzkyODM0YjAxNA=='}
+        headers= {'Content-Type': 'application/json', 'Accept-Language':'en_US', 'Host':'mir.com:8080', 'Authorization':'########'}
         data={"value": 0,"label": "Break indicator"}
 
         r=requests.put(url, data=json.dumps(data), headers=headers, )
         
     #obsluga rejestru i piface relay 0
     url='http://mir.com/api/v2.0.0/registers/2'
-    headers= {'Content-Type': 'application/json', 'Accept-Language':'en_US', 'Host':'mir.com:8080', 'Authorization':'Basic ZGlzdHJpYnV0b3I6NjJmMmYwZjFlZmYxMGQzMTUyYzk1ZjZmMDU5NjU3NmU0ODJiYjhlNDQ4MDY0MzNmNGNmOTI5NzkyODM0YjAxNA=='}
+    headers= {'Content-Type': 'application/json', 'Accept-Language':'en_US', 'Host':'mir.com:8080', 'Authorization':'########'}
     
     r=requests.get(url, headers=headers, )
     if r.text[-6:-3] == "1.0" and pfr.relays[0].value == 0:
@@ -54,7 +54,7 @@ while True:
     # obsluga przycisku
     if button.is_pressed:
         url='http://mir.com/api/v2.0.0/registers/1'
-        headers= {'Content-Type': 'application/json', 'Accept-Language':'en_US', 'Host':'mir.com:8080', 'Authorization':'Basic ZGlzdHJpYnV0b3I6NjJmMmYwZjFlZmYxMGQzMTUyYzk1ZjZmMDU5NjU3NmU0ODJiYjhlNDQ4MDY0MzNmNGNmOTI5NzkyODM0YjAxNA=='}
+        headers= {'Content-Type': 'application/json', 'Accept-Language':'en_US', 'Host':'mir.com:8080', '########'}
         data={"value": 1,"label": "Raspberry button"}
 
         r=requests.put(url, data=json.dumps(data), headers=headers, )
